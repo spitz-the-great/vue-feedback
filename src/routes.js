@@ -5,6 +5,7 @@ import Three from './components/Three.vue'
 import Four from './components/Four.vue'
 import Success from './components/SuccessPage.vue'
 import Admin from './components/Admin.vue'
+import Bye from './components/Bye.vue'
 
 
 export default[
@@ -14,7 +15,8 @@ export default[
 { path: '/3', component: Three },
 { path: '/4', component: Four },
 { path: '/confirm', component: Success },
-{ path: '/admin', component: Admin }
+{ path: '/admin', component: Admin },
+{ path: '/bye', component: Bye }
 
 ]
     
