@@ -26,12 +26,12 @@ export default {
   props: {
     msg: String
   },
-  methods: {
-    pageTwo: function(){
-      console.log('in pageTwo');
-      
+  computed: {
+    feedback(){
+      return this.$store.state.feedback
     }
   }
+  
 };
 </script>
 
