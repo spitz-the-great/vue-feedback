@@ -6,13 +6,14 @@
     
       <p>How are you feeling today?</p>
       <p>Enter a number from 0 to 5:</p>
-      <input type="number">
+      <input type="number" v-model="feelingInput">
       <br />
       <br />
-      
-        <router-link to="/2">
-        <button v-on:click="pageTwo"> Next</button>
-        </router-link>
+      <span>{{ feelingInput }} </span>
+        <!-- <router-link to="/2"> -->
+        <button v-on:click="addFeeling(feelingInput)">Next</button>
+        <!-- </router-link> -->
+        <p>{{feedbackToAdd.feeling}}</p>
        
     
   </div>
@@ -20,15 +21,34 @@
 
 <script>
 
+ let feelingInput = '';
 
 export default {
   name: "One",
-  props: {
-    msg: String
-  },
+
+  // data:{
+  //   feelingInput: '',
+  // },
+  
   computed: {
-    feedback(){
-      return this.$store.state.feedback
+    feedbackList(){
+      return this.$store.state.feedbackList
+    },
+
+    feedbackToAdd(){
+      return this.$store.state.feedbackToAdd
+    },
+    
+  },
+  methods: {
+    addFeeling: function(feeling){
+
+      console.log(this.feelingInput);
+      console.log('feeling from user: ', feeling);
+
+      //  this.$store.state.feedbackToAdd.feeling = this.feelingInput;
+      // dispatches 'addFeeling' action to Vuex store
+      this.$store.dispatch('addFeeling', feeling);
     }
   }
   

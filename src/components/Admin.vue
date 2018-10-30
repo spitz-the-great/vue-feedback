@@ -13,19 +13,19 @@
                     <td>Delete?</td>
                 </tr>
             </th>
-            
+
             <tbody>      
-                <tr v-for="feedbacks in feedback">
-                    <td>{{ feedbacks.feeling }}</td>
-                    <td>{{ feedbacks.understanding }}</td>
-                    <td>{{ feedbacks.support }}</td>
-                    <td>{{ feedbacks.comments }}</td>
+                <tr v-for="feedback in feedbackList">
+                    <td>{{ feedback.feeling }}</td>
+                    <td>{{ feedback.understanding }}</td>
+                    <td>{{ feedback.support }}</td>
+                    <td>{{ feedback.comments }}</td>
                     <td> <button>Delete?</button> </td>
                 </tr>
             </tbody>
         </table>
 
-    
+    <p>{{feedbackToAdd.feeling}}</p>
     
   </div>
 </template>
@@ -35,9 +35,16 @@ export default {
   name: 'Admin',
     
   computed: {
-    feedback(){
-      return this.$store.state.feedback
-        }   
-    }
+    feedbackList(){
+      return this.$store.state.feedbackList
+        },
+        
+    feedbackToAdd(){
+      return this.$store.state.feedbackToAdd
+        }  
+    },
+
+     
+    
 }
 </script>
